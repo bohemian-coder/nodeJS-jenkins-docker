@@ -29,4 +29,4 @@ docker run -p 8080:8080 -p 50000:50000 -v /var/jenkins_home:/var/jenkins_home -d
 
 # show endpoint
 echo 'Jenkins successfully  installed'
-echo 'Jenkins URL: http://'$(curl -4 -s ifconfig.co)':8080'
+echo 'Jenkins URL: http://'$(ip addr show eth0 | grep 'inet ' | awk '{print $2}' | cut -d '/' -f 1)':8080'
