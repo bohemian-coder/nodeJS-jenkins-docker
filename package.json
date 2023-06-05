@@ -4,6 +4,7 @@
   "description": "Setting up a ci/cd pipeline with jenkins for a containerized NodeJS project",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "npm install inherits && mocha"
   },
   "repository": {
