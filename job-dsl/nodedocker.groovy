@@ -3,6 +3,7 @@ job('NodeJS Docker example') {
         git('https://github.com/bohemian-coder/nodeJS-jenkins-docker.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('bohemian-coder')
             node / gitConfigEmail('jenniferejeme@gmail.com')
+             branches('jenkins-dsl')
         }
     }
     triggers {
