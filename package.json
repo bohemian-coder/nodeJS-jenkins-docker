@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-jenkins-docker",
+  "version": "1.0.0",
+  "description": "Setting up a ci/cd pipeline with jenkins for a containerized NodeJS project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bohemian-coder/nodeJS-jenkins-docker.git"
+  },
+  "author": "Maybelle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bohemian-coder/nodeJS-jenkins-docker/issues"
+  },
+  "homepage": "https://github.com/bohemian-coder/nodeJS-jenkins-docker#readme"
+}
