@@ -21,7 +21,9 @@
     "express": "^4.18.2",
     "http-errors": "^2.0.0",
     "inherits": "^2.0.4",
-    "mocha": "^10.2.0",
     "mysql2": "^3.3.3"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
   }
 }

@@ -6,3 +6,4 @@ describe('Array', function() {
     });
   });
 });
+/* For demo purposes: This test will always succeed*/
