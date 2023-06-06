@@ -1,0 +1,31 @@
+node {
+    def git_comit_id
+    stage('Preparation') {
+        checkout scm
+        sh "git rev-parse --short HEAD > .git/commit-id"
+        git_comit_id = readFile('.git/commit-id').trim()
+    }
+    stage('test') {
+        def dbTestContainer = docker.image('node:16')
+        dbTestContainer.pull()
+        dbTestContainer.inside {
+        sh 'npm install'
+        sh 'npm test'
+        }
+    }
+    stage('test with database') {
+        def mysql = docker.image('mysql').run("-e MYSQL_ALLOW_EMPTY_PASSWORD=yes") 
+        def dbTestContainer = docker.image('node:16')
+        dbTestContainer.pull()
+        dbTestContainer.inside("--link ${mysql.id}:mysql") { //host: mysql, port: 3306
+            sh 'npm install' 
+            sh 'npm test'                     
+        }                                   
+        mysql.stop()
+    }                                     
+    stage('docker build/push') {            
+        docker.withRegistry('https://index.docker.io/v2/', 'dockercredentials') {
+        def app = docker.build("maybellemo/node-jenkins-docker:${git_comit_id }", '.').push()
+        }                                     
+    }                                       
+}                                          
