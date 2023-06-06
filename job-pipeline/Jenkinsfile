@@ -9,11 +9,11 @@ node
    }
    stage('Testing') {
      nodejs(nodeJSInstallationName: 'nodejs') {
-       sh 'npm install --only=dev'
+       sh 'npm install'
        sh 'npm test'
      }
    }
-   stage('Docker build/push') {
+   stage('Docker build and push') {
      docker.withRegistry('https://index.docker.io/v2/', 'dockercredentials') {
        def app = docker.build("maybellemo/node-jenkins-docker:${git_commit_id}", '.').push()
      }
