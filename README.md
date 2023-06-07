@@ -1,11 +1,11 @@
 # nodeJS-jenkins-docker
 CI/CD pipeline template with Jenkins for containerized NodeJS project
 
-Link to image: https://hub.docker.com/r/maybellemo/node-jenkins-docker/tags
+Link to images: https://hub.docker.com/r/maybellemo/node-jenkins-docker/tags
 
 This project is built incrementally, and branches represent different stages in the pipeline, with integrations and automated iterations.
 
-## Branches:
+### Branches:
 
 1. main
 2. jenkins-dsl
